@@ -1,0 +1,65 @@
+# Игнорирование файлов с расширением .log
+logs
+*.log
+
+# Игнорирование логов от различных пакетных менеджеров
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Игнорирование директории с зависимостями Node.js
+node_modules
+
+# Игнорирование собранных файлов
+dist
+dist-ssr
+
+# Игнорирование файлов с расширением .local
+*.local
+
+# Игнорирование директории и настроек редактора Visual Studio Code
+.vscode/*
+!.vscode/extensions.json
+
+# Игнорирование директории проекта JetBrains IDEA
+.idea
+
+# Игнорирование системных файлов и настроек Visual Studio
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# Игнорирование временных файлов
+*.sw?
+
+# Игнорирование файлов покрытия кода при тестировании
+/coverage
+
+# Игнорирование собранных файлов проекта
+/build
+
+# Игнорирование материалов проекта (например, скриншоты для Perfect Pixel, документы и т.д.)
+/materials
+
+# Игнорирование директории проекта JetBrains IDEA и Visual Studio Code
+# (повторно указаны, удалил повторы)
+.vscode
+.idea
+
+# Игнорирование системного файла для MacOS .DS_Store
+.DS_Store
+
+# Игнорирование локальных файлов окружения
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Игнорирование кэша линтера ESLint
+.eslintcache
+
+# Игнорирование основного файла окружения
+.env
