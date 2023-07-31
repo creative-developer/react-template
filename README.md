@@ -42,11 +42,6 @@
 
 &nbsp;
 
-## Подробнее про CRA
-
-Вы можете узнать больше в
-[Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
 ## Как добавлять новые иконки?
 
 1. Экспортируем иконку из фигмы в svg формате
@@ -62,11 +57,6 @@
 
 ## Сущности:
 
-1. Poll
-2. Organization
-3. User
-4. Account
-
 ## Инструкция:
 
 1. Все кастомные компоненты начинаются с префикса "Q"
@@ -74,6 +64,6 @@
 ## Как запусить проект?
 
 1. Нужно создать локальный .env файл на примере .env.example
-2. cd ./frontend
-3. yarn install
-4. yarn start
+2. yarn install
+3. yarn dev
+

@@ -9,7 +9,8 @@
   "jsxBracketSameLine": false,
   "arrowParens": "avoid",
   "proseWrap": "always",
-  "importOrder": ["^base/|^components/|^helpers/|^hooks/|^modules/|^screens/|^styles/|^utils/", "^[./]", "^assets/"],
+  "importOrder": ["^[~]", "^[./]", "^assets/"],
   "importOrderSeparation": true,
-  "importOrderParserPlugins": ["typescript", "jsx", "decorators-legacy"]
+  "importOrderParserPlugins": ["typescript", "jsx", "decorators-legacy"],
+  "endOfLine": "crlf"
 }
