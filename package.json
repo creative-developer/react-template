@@ -5,10 +5,12 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "postinstall": "patch-package",
     "build": "tsc --pretty && eslint . && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "pretty": "tsc --pretty",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "pre-commit": "tsc --pretty && eslint ."
   },
   "dependencies": {
     "@emotion/react": "11.11.1",
@@ -19,6 +21,7 @@
     "date-fns": "2.30.0",
     "mobx": "6.10.0",
     "mobx-react-lite": "4.0.3",
+    "object-to-formdata": "4.5.1",
     "query-string": "8.1.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
@@ -26,7 +29,7 @@
     "react-hook-form": "7.45.2",
     "react-notifications-component": "4.0.1",
     "react-router-dom": "6.14.2",
-    "tss-react": "4.8.8",
+    "tss-react": "4.8.4",
     "yup": "1.2.0"
   },
   "devDependencies": {
@@ -49,11 +52,15 @@
     "eslint-plugin-react-hooks": "4.6.0",
     "eslint-plugin-react-refresh": "0.4.3",
     "eslint-plugin-tss-unused-classes": "0.0.4",
+    "patch-package": "8.0.0",
+    "postinstall-postinstall": "2.1.0",
     "prettier": "2.8.8",
     "reflect-metadata": "0.1.13",
     "ts-serializable": "3.0.36",
+    "tslib": "2.6.1",
     "typescript": "5.0.2",
     "vite": "4.4.5",
+    "vite-plugin-checker": "0.6.1",
     "vite-plugin-svgr": "3.2.0"
   }
 }

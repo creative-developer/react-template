@@ -1,0 +1,15 @@
+export enum FileExtensions {
+  doc = 'doc',
+  docx = 'docx',
+  xls = 'xls',
+  xlsx = 'xlsx',
+  ppt = 'ppt',
+  pptx = 'pptx',
+  jpg = 'jpg',
+  imageJpeg = 'image/jpeg',
+  pdf = 'pdf',
+  png = 'png',
+  txt = 'txt',
+  zip = 'zip',
+  empty = '',
+}

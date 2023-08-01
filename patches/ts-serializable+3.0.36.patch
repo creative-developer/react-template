@@ -1,0 +1,17 @@
+diff --git a/node_modules/ts-serializable/dist/classes/Serializable.js b/node_modules/ts-serializable/dist/classes/Serializable.js
+index 18231f3..24e3464 100644
+--- a/node_modules/ts-serializable/dist/classes/Serializable.js
++++ b/node_modules/ts-serializable/dist/classes/Serializable.js
+@@ -200,7 +200,11 @@ export class Serializable {
+             Array.isArray(acceptedType) &&
+                 Array.isArray(jsonValue)) {
+                 if (acceptedType[0] === void 0) {
+-                    this.onWrongType(prop, "invalid type", jsonValue);
++                    try {
++                        return jsonValue.map((arrayValue) => this.deserializeProperty(prop, [this.constructor, acceptedTypes[1] !== undefined ? acceptedTypes[1] : null], arrayValue, settings));
++                    } catch (e) {
++                        this.onWrongType(prop, "invalid type", jsonValue);
++                    }
+                 }
+                 return jsonValue.map((arrayValue) => this.deserializeProperty(prop, acceptedType, arrayValue, settings));
+             }

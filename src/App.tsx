@@ -1,26 +1,53 @@
-import { useState } from 'react';
+import { observer } from 'mobx-react-lite';
+import { useEffect } from 'react';
+import { ReactNotifications } from 'react-notifications-component';
+import 'react-notifications-component/dist/theme.css';
 
-import reactLogo from './assets/react.svg';
+import { useRootStore } from './base/hooks/useRootStore';
+import { AppRoutes } from './base/routes/components/AppRoutes';
+import { BaseLayout } from './components/Layouts/BaseLayout';
+import { Loader } from './components/UI/Loader';
+import { routes, authRoutes } from './routes/routes';
 
-export function App() {
-  const [count, setCount] = useState(0);
+export const App: React.FC = observer(() => {
+  const { authStore } = useRootStore();
 
-  return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank"></a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount(count => count + 1)}>count is {count}</button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">Click on the Vite and React logos to learn more</p>
-    </>
-  );
-}
+  // Effects
+  useEffect(() => {
+    authStore.checkAuth(() => {
+      // userStore.getCurrentUser();
+      console.log('get user');
+    });
+  }, []);
+
+  // Renders
+  const renderIsAuthStack = () => {
+    return (
+      <>
+        <BaseLayout>
+          <AppRoutes routes={routes} />
+        </BaseLayout>
+
+        <ReactNotifications />
+      </>
+    );
+  };
+
+  const renderIsNotAuthStack = () => {
+    return (
+      <>
+        <AppRoutes redirectProps={{ to: authRoutes.LoginScreen.path }} routes={authRoutes} />
+
+        <ReactNotifications />
+      </>
+    );
+  };
+
+  // Main loader
+  // TODO: В будущем нужно добавить || usersStore.loading
+  if (!authStore.completeCheckAuth) {
+    return <Loader minHeight="100vh" />;
+  }
+
+  return !authStore.isAuth ? renderIsAuthStack() : renderIsNotAuthStack();
+});
