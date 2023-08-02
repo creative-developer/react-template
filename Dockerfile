@@ -8,4 +8,4 @@ RUN yarn install --force && yarn global add serve
 
 RUN yarn build
 
-CMD ["serve", "-s", "build", "-l", "3000"]
+CMD ["serve", "-s", "dist", "-l", "3000"]
